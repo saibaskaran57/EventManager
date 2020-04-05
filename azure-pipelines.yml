@@ -21,21 +21,21 @@ steps:
   inputs:
     testRunner: VSTest
     testResultsFiles: '**/*.trx'
-- script: dotnet publish src/Service/Service.csproj --output $(Build.ArtifactStagingDirectory)
+- script: dotnet publish src/Service/Service.csproj --output $(Build.ArtifactStagingDirectory) --no-build
   displayName: 'dotnet publish src/Service/Service.csproj $(Build.ArtifactStagingDirectory)'
 - task: DotNetCoreCLI@2
   inputs:
     command: publish
     publishWebProjects: True
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory) --no-restore'
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory) --no-build'
     zipAfterPublish: True
-- script: dotnet publish src/Tests/Service.Acceptance.Tests/Service.Acceptance.Tests.csproj --output $(Build.ArtifactStagingDirectory)\AcceptanceTest
+- script: dotnet publish src/Tests/Service.Acceptance.Tests/Service.Acceptance.Tests.csproj --output $(Build.ArtifactStagingDirectory)\AcceptanceTest --no-build
   displayName: 'dotnet publish src/Tests/Service.Acceptance.Tests/Service.Acceptance.Tests.csproj $(Build.ArtifactStagingDirectory)'
 - task: DotNetCoreCLI@2
   inputs:
     command: publish
     publishWebProjects: True
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)\AcceptanceTest --no-restore'
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)\AcceptanceTest --no-build'
     zipAfterPublish: false
 - task: PublishBuildArtifacts@1
   inputs:
