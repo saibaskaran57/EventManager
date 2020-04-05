@@ -1,4 +1,4 @@
-# Event Manager Service
+# Event Manager Service [![Build Status](https://dev.azure.com/saibaskar57/saibaskar57/_apis/build/status/saibaskaran57.EventManager?branchName=master)](https://dev.azure.com/saibaskar57/saibaskar57/_build/latest?definitionId=1&branchName=master)
  The project repository aims to manage SaaS events from SaaS providers for ease of decoupled SaaS event testing.
  
  Below shows a simple architecture diagram to listen SaaS events from SaaS providers(e.g. One Drive, Box, OAuth, etc):
