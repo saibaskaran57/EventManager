@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/src/Tests/Service.Integration.Tests/obj
+/src/Service/obj
+/src/Infrastructure/obj
+/src/Core/obj
+/src/.vs/EventManager/v16/TestStore/0
+/src/Tests/Service.Integration.Tests/bin/Debug/netcoreapp3.1
+/src/Service/bin/Debug/netcoreapp3.1
+/src/Infrastructure/bin/Debug/netstandard2.0
+/src/Core/bin/Debug/netstandard2.0
+/src/.vs/EventManager/v16
