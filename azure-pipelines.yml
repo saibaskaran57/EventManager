@@ -15,3 +15,5 @@ variables:
 steps:
 - script: dotnet build src/EventManager.sln --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+- script: dotnet test src/Tests/Service.Integration.Tests/Service.Integration.Tests.csproj --configuration $(buildConfiguration)
+  displayName: 'dotnet test $(buildConfiguration)'
