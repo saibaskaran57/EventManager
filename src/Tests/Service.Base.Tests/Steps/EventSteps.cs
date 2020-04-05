@@ -1,7 +1,6 @@
 ﻿using Core;
 using Infrastructure;
 using Infrastructure.Models;
-using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
 using Service.Models;
 using System;

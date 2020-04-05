@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc.Testing;
 using Service.Base.Tests;
 using Service.Base.Tests.Steps;
 using System;

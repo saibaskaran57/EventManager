@@ -18,3 +18,12 @@
 /src/Tests/Service.Base.Tests/bin/Debug/netcoreapp3.1
 /src/Tests/Service.Base.Tests/obj/Debug/netcoreapp3.1
 /src/Tests/Service.Base.Tests/obj
+/src/Tests/Service.Integration.Tests/bin/Release/netcoreapp3.1
+/src/Tests/Service.Base.Tests/bin/Release/netcoreapp3.1/Service.deps.json
+/src/Tests/Service.Acceptance.Tests/bin/Release/netcoreapp3.1/Service.deps.json
+/src/Tests/Service.Acceptance.Tests/bin/Release/netcoreapp3.1/Service.Base.Tests.deps.json
+/src/Service/Properties/PublishProfiles
+/src/Service/Service.csproj.user
+/src/Service/bin/Release/netcoreapp3.1
+/src/Infrastructure/bin/Release/netstandard2.0
+/src/Core/bin/Release/netstandard2.0
