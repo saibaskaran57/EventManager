@@ -1,9 +1,12 @@
 ﻿using Core;
 using Infrastructure;
 using Infrastructure.Models;
+using Microsoft.AspNetCore.WebUtilities;
 using Newtonsoft.Json;
+using Service.Constants;
 using Service.Models;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -15,6 +18,7 @@ namespace Service.Base.Tests.Steps
     public sealed class EventSteps
     {
         private readonly string eventServiceEndpoint;
+        private readonly string eventServiceKey;
         private readonly string subscriptionServiceEndpoint;
         private readonly HttpClient client;
 
@@ -24,6 +28,7 @@ namespace Service.Base.Tests.Steps
         public EventSteps(HttpClient client, TestOption option)
         {
             this.eventServiceEndpoint = option.EventServiceEndpoint;
+            this.eventServiceKey = option.EventServiceKey;
             this.subscriptionServiceEndpoint = option.SubscriptionServiceEndpoint;
             this.client = client;
 
@@ -41,7 +46,7 @@ namespace Service.Base.Tests.Steps
         {
             var request = new SubscriptionRequest
             {
-                CallbackUrl = $"{eventServiceEndpoint}/{this.notificationId}"
+                CallbackUrl = AddServiceKey($"{eventServiceEndpoint}/{this.notificationId}")
             };
 
             var flattenedRequest = JsonConvert.SerializeObject(request);
@@ -64,10 +69,12 @@ namespace Service.Base.Tests.Steps
 
         public async Task ThenEventShouldExistViaWebhookUrl(string eventId)
         {
-            var response = await client.GetAsync($"{eventServiceEndpoint}/{this.notificationId}").ConfigureAwait(false);
+            var endpoint = AddServiceKey($"{eventServiceEndpoint}/{this.notificationId}");
+            var response = await client.GetAsync(endpoint).ConfigureAwait(false);
 
             var result = JsonConvert.DeserializeObject<Event>(await response.Content.ReadAsStringAsync().ConfigureAwait(false));
 
+            Assert.True(response.IsSuccessStatusCode);
             Assert.Equal(eventId, result.EventId);
         }
 
@@ -78,6 +85,16 @@ namespace Service.Base.Tests.Steps
             var response = await client.GetAsync($"{subscriptionServiceEndpoint}/{this.webhookId}").ConfigureAwait(false);
 
             Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
+        }
+        
+        private string AddServiceKey(string endpoint)
+        {
+            var queryString = new Dictionary<string, string>
+            {
+                { QueryParams.AccessKey, this.eventServiceKey }
+            };
+
+            return QueryHelpers.AddQueryString(endpoint, queryString);
         }
     }
 }

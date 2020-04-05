@@ -16,6 +16,7 @@ namespace Service.Integration.Tests
             var option = new TestOption
             {
                 EventServiceEndpoint = Configuration.EventServiceEndpoint,
+                EventServiceKey = Configuration.EventServiceKey,
                 SubscriptionServiceEndpoint = Configuration.SubscriptionServiceEndpoint
             };
 

@@ -4,6 +4,8 @@
     {
         public string EventServiceEndpoint { get; set; }
 
+        public string EventServiceKey { get; set; }
+
         public string SubscriptionServiceEndpoint { get; set; }
     }
 }

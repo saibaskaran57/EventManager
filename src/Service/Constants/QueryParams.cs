@@ -5,5 +5,6 @@
         public const string NotificationId = "notificationId";
         public const string WebhookId = "webhookId";
         public const string ValidationToken = "validationtoken";
+        public const string AccessKey = "key";
     }
 }
