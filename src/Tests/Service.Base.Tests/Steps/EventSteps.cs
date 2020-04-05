@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Service.Integration.Tests.Steps
+namespace Service.Base.Tests.Steps
 {
     public sealed class EventSteps
     {
@@ -22,11 +22,11 @@ namespace Service.Integration.Tests.Steps
         private string notificationId;
         private string webhookId;
 
-        public EventSteps(WebApplicationFactory<Startup> factory)
+        public EventSteps(HttpClient client, TestOption option)
         {
-            this.eventServiceEndpoint = TestOptions.EventServiceEndpoint;
-            this.subscriptionServiceEndpoint = TestOptions.SubscriptionServiceEndpoint;
-            this.client = factory.CreateClient();
+            this.eventServiceEndpoint = option.EventServiceEndpoint;
+            this.subscriptionServiceEndpoint = option.SubscriptionServiceEndpoint;
+            this.client = client;
 
             ApiBuilder.SetClient(this.client);
         }

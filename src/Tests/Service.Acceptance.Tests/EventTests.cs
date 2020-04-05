@@ -2,16 +2,17 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Service.Base.Tests;
 using Service.Base.Tests.Steps;
 using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Service.Integration.Tests
+namespace Service.Acceptance.Tests
 {
-    public class EventTests : IClassFixture<WebApplicationFactory<Startup>>
+    public class EventTests
     {
         private readonly EventSteps steps;
 
-        public EventTests(WebApplicationFactory<Startup> factory)
+        public EventTests()
         {
             var option = new TestOption
             {
@@ -19,7 +20,7 @@ namespace Service.Integration.Tests
                 SubscriptionServiceEndpoint = Configuration.SubscriptionServiceEndpoint
             };
 
-            var client = factory.CreateClient();
+            var client = new HttpClient();
 
             this.steps = new EventSteps(client, option);
         }

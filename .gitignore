@@ -12,3 +12,9 @@
 /src/Infrastructure/bin/Debug/netstandard2.0
 /src/Core/bin/Debug/netstandard2.0
 /src/.vs/EventManager/v16
+/src/.vs/EventManager/DesignTimeBuild
+/src/Tests/Service.Acceptance.Tests/bin/Debug/netcoreapp3.1
+/src/Tests/Service.Acceptance.Tests/obj
+/src/Tests/Service.Base.Tests/bin/Debug/netcoreapp3.1
+/src/Tests/Service.Base.Tests/obj/Debug/netcoreapp3.1
+/src/Tests/Service.Base.Tests/obj
