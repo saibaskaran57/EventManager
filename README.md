@@ -24,7 +24,7 @@ __Steps involved:__
  Example:
  GET "https://<hostname>/event/api/callback/<Notification ID>?key=<Access Key>"
  ```
- 3) SaaS Service received events from the desired event.
+ 3) SaaS Service received events from the desired call to action.
  4) SaaS Service will callback with the given __POST__ Event Manager Service callback url.
  ```
  Example:
